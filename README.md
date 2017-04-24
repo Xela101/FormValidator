@@ -1,6 +1,6 @@
 
 # FormValidator
-Create the input controls and validation fields. Link validation field to the input via the validation attribute.
+Automatically validate html forms without the need of importing other external dependencies.
 ## Installation
 TODO: Describe the installation process
 ## Usage
