@@ -19,7 +19,13 @@
 			input{
 				height:25px;
 			}
-
+			
+			textarea {
+				width:300px;
+				height:150px;
+				resize: none;
+			}
+			
 			.validation-hidden {
 				visibility: hidden;
 			}
@@ -31,10 +37,10 @@
 		<script type="text/javascript" src="../formvalidator.js"></script>
 	</head>
 	<body>
-		<form id="form1" action="/">
+		<form id="form1" action="#">
 			<label>
 				User<br/>
-				<input type="text" class="user" validation="validation1"/>
+				<input type="text" class="sixormore" validation="validation1"/>
 				<div class="validation" id="validation1"></div><br/>
 			</label>
 			
@@ -46,13 +52,13 @@
 
 			<label>
 				Password<br/>
-				<input type="password" class="password" validation="validation3" />
+				<input type="password" class="sixormore" validation="validation3" />
 				<div class="validation" id="validation3"></div><br/>
 			</label>
 			
 			<label>
 				Info<br/>
-				<textarea class="user" validation="validation4"></textarea>
+				<textarea class="sixormore" validation="validation4"></textarea>
 				<div class="validation" id="validation4"></div><br/>
 			</label>
 
@@ -60,7 +66,7 @@
 		</form>
 		
 		<script>
-			var formValidator = new FormValidator();
+			var formValidator = new FormValidator({form:document.getElementById("form1")});
 			formValidator.attach(document.getElementById("form1"));
 			
 			formValidator.registerValidator("email", function(element) {
@@ -68,6 +74,10 @@
 				return { success: regex.test(element.value), message: "Please enter a valid email address." };
 			});
 
+			formValidator.registerValidator("sixormore", function(element) {
+				return {success: element.value.length >= 6, message: "Field must be more then 6 characters long!"};
+			});
+			
 			formValidator.registerValidator("user", function(element) {
 				return {success: element.value.length > 6, message: "Username must be more then 6 characters long!"};
 			});

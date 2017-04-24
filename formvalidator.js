@@ -3,9 +3,13 @@
 */
 var FormValidator = (function() {
 	function FormValidator(settings) {
+		this.types = {};
+		
 		settings = settings || {};
 		this.realtimeOff = settings.realtimeOff || false;
-		this.types = {};
+		
+		if(settings.form)
+			this.attach(settings.form);
 	}
 	
 	/*
