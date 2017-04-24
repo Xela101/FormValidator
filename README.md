@@ -1,5 +1,4 @@
-<snippet>
-  <content><![CDATA[
+
 # ${1:FormValidator}
 Create the input controls and validation fields. Link validation field to the input via the validation attribute.
 ## Installation
@@ -18,6 +17,3 @@ TODO: Write history
 TODO: Write credits
 ## License
 TODO: Write license
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
