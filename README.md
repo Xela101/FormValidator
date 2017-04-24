@@ -1,10 +1,23 @@
-# FormValidator
-Automatically validate html forms without the need of importing other external dependencies.
-
-<h1>Setup</h1>
-<h2>Create the input controls and validation fields. Link validation field to the input via the validation attribute.</h2>
-<div>
-User<br/>
-<input type="text" validation="validation1" validate-on="sixormore"/>
-<div class="validation" id="validation1"></div><br/>
-</div>
+<snippet>
+  <content><![CDATA[
+# ${1:FormValidator}
+Create the input controls and validation fields. Link validation field to the input via the validation attribute.
+## Installation
+TODO: Describe the installation process
+## Usage
+TODO: Write usage instructions
+## Contributing
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+## History
+TODO: Write history
+## Credits
+TODO: Write credits
+## License
+TODO: Write license
+]]></content>
+  <tabTrigger>readme</tabTrigger>
+</snippet>
