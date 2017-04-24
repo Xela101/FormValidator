@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>Example</title>
+		<style>
+			body{
+				font-family:arial;
+			}
+
+			.validation{
+				color:red;
+				font-size:12px;
+			}
+			
+			.validation:after{
+				content:" ";
+				white-space: pre;
+			}
+
+			input{
+				height:25px;
+			}
+
+			.validation-hidden {
+				visibility: hidden;
+			}
+
+			.validation-issue {
+				border-color: red;
+			}
+		</style>
+		<script type="text/javascript" src="../formvalidator.js"></script>
+	</head>
+	<body>
+		<form id="form1" action="/">
+			User<br/>
+			<input type="text" class="user" validation="validation1" />
+			<div class="validation" id="validation1"></div><br/>
+
+			Email<br/>
+			<input type="email" class="asm email gfd" validation="validation2" />
+			<div class="validation" id="validation2"></div><br/>
+
+			Password<br/>
+			<input type="password" class="password" validation="validation3" />
+			<div class="validation" id="validation3"></div><br/>
+
+			<input type="submit" />
+		</form>
+		
+		<script>
+			var formValidator = new FormValidator();
+			formValidator.attach(document.getElementById("form1"));
+			
+			formValidator.registerValidator("email", function(element) {
+				var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				return { success: regex.test(element.value), message: "Invalid email" };
+			});
+
+			formValidator.registerValidator("user", function(element) {
+				return {success: element.value.length > 6, message: "Username must be more then 6 characters long!"};
+			});
+
+			formValidator.registerValidator("password", function(element) {
+				return { success: element.value.length > 6, message: "Password must be more then 6 characters long!"};
+			});
+
+			formValidator.issuesCallback = function(issues) {
+				console.log("issues", issues);
+			}
+		</script>
+	</body>
+</html>
