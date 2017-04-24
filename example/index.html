@@ -32,17 +32,29 @@
 	</head>
 	<body>
 		<form id="form1" action="/">
-			User<br/>
-			<input type="text" class="user" validation="validation1" />
-			<div class="validation" id="validation1"></div><br/>
+			<label>
+				User<br/>
+				<input type="text" class="user" validation="validation1"/>
+				<div class="validation" id="validation1"></div><br/>
+			</label>
+			
+			<label>
+				Email<br/>
+				<input type="email" class="asm email gfd" validation="validation2" />
+				<div class="validation" id="validation2"></div><br/>
+			</label>
 
-			Email<br/>
-			<input type="email" class="asm email gfd" validation="validation2" />
-			<div class="validation" id="validation2"></div><br/>
-
-			Password<br/>
-			<input type="password" class="password" validation="validation3" />
-			<div class="validation" id="validation3"></div><br/>
+			<label>
+				Password<br/>
+				<input type="password" class="password" validation="validation3" />
+				<div class="validation" id="validation3"></div><br/>
+			</label>
+			
+			<label>
+				Info<br/>
+				<textarea class="user" validation="validation4"></textarea>
+				<div class="validation" id="validation4"></div><br/>
+			</label>
 
 			<input type="submit" />
 		</form>
@@ -53,7 +65,7 @@
 			
 			formValidator.registerValidator("email", function(element) {
 				var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-				return { success: regex.test(element.value), message: "Invalid email" };
+				return { success: regex.test(element.value), message: "Please enter a valid email address." };
 			});
 
 			formValidator.registerValidator("user", function(element) {

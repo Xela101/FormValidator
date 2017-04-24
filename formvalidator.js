@@ -2,7 +2,9 @@
 	FormValidator - Simple light weight html form validator.
 */
 var FormValidator = (function() {
-	function FormValidator() {
+	function FormValidator(settings) {
+		settings = settings || {};
+		this.realtimeOff = settings.realtimeOff || false;
 		this.types = {};
 	}
 	
@@ -32,7 +34,8 @@ var FormValidator = (function() {
 	FormValidator.prototype.attach = function(form) {
 		this.form = form;
 		this.form.addEventListener("submit", this.validate.bind(this), false);
-		this.bindValidationElements(this.form.elements);
+		if(!this.realtimeOff)
+			this.bindValidationElements(this.form.elements);
 		this.resetValidation(form);
 	}
 
