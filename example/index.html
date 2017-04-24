@@ -40,25 +40,25 @@
 		<form id="form1" action="#">
 			<label>
 				User<br/>
-				<input type="text" class="sixormore" validation="validation1"/>
+				<input type="text" validation="validation1" validate-on="sixormore"/>
 				<div class="validation" id="validation1"></div><br/>
 			</label>
 			
 			<label>
 				Email<br/>
-				<input type="email" class="asm email gfd" validation="validation2" />
+				<input type="text" validation="validation2" validate-on="email"/>
 				<div class="validation" id="validation2"></div><br/>
 			</label>
 
 			<label>
 				Password<br/>
-				<input type="password" class="sixormore" validation="validation3" />
+				<input type="password" validation="validation3" validate-on="sixormore">
 				<div class="validation" id="validation3"></div><br/>
 			</label>
 			
 			<label>
 				Info<br/>
-				<textarea class="sixormore" validation="validation4"></textarea>
+				<textarea validation="validation4" validate-on="sixormore"></textarea>
 				<div class="validation" id="validation4"></div><br/>
 			</label>
 
@@ -67,7 +67,6 @@
 		
 		<script>
 			var formValidator = new FormValidator({form:document.getElementById("form1")});
-			formValidator.attach(document.getElementById("form1"));
 			
 			formValidator.registerValidator("email", function(element) {
 				var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

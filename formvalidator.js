@@ -56,6 +56,10 @@ var FormValidator = (function() {
 		Binds the user input control with events to help with real time validation.
 	*/
 	FormValidator.prototype.bindValidationElement = function(element) {
+		element.addEventListener("input", function(evt) {
+			this.validateElement(evt.target);
+		}.bind(this), false);
+	
 		element.addEventListener("keyup", function(evt) {
 			this.validateElement(evt.target);
 		}.bind(this), false);
@@ -90,15 +94,18 @@ var FormValidator = (function() {
 		Validates a user input element.
 	*/
 	FormValidator.prototype.validateElement = function(element) {
-		for (var typeKey in this.types) {
-			if (this.hasValidator(element.className, typeKey)) {
-				var response = this.types[typeKey](element);
-				if (element.hasAttribute("validation")) {
-					if (!response.success) {
-						this.invalidateElement(element, response.message);
-						return response;
+		if (element.hasAttribute("validate-on")) {
+			var validateOn = element.getAttribute("validate-on");
+			for (var typeKey in this.types) {
+				if (this.hasValidator(validateOn, typeKey)) {
+					var response = this.types[typeKey](element);
+					if (element.hasAttribute("validation")) {
+						if (!response.success) {
+							this.invalidateElement(element, response.message);
+							return response;
+						}
+						this.resetElementValidation(element);
 					}
-					this.resetElementValidation(element);
 				}
 			}
 		}
