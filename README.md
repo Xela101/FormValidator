@@ -1,5 +1,5 @@
 
-# ${1:FormValidator}
+# FormValidator
 Create the input controls and validation fields. Link validation field to the input via the validation attribute.
 ## Installation
 TODO: Describe the installation process
