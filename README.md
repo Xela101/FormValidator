@@ -2,7 +2,7 @@
 # FormValidator
 Automatically validate html forms without the need of importing other external dependencies.
 ## Installation
-TODO: Describe the installation process
+Place the "formvalidator.js" file into your scripts directory and link to it through you're HTML file.
 ## Usage
 TODO: Write usage instructions
 ## Contributing
