@@ -4,7 +4,7 @@ Automatically validate html forms without the need of importing other external d
 ## Installation
 Place the "formvalidator.js" file into your scripts directory and link to it through you're HTML file.
 ## Usage
-TODO: Write usage instructions
+Check the example
 ## Contributing
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
