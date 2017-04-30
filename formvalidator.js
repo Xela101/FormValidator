@@ -87,6 +87,7 @@ var FormValidator = (function() {
 			var validationField = document.getElementById(element.getAttribute("validation"));
 			validationField.classList.add("validation-hidden");
 			element.classList.remove("validation-issue");
+			element.classList.remove("validation-success");
 		}
 	}
 	
@@ -100,11 +101,12 @@ var FormValidator = (function() {
 				if (this.hasValidator(validateOn, typeKey)) {
 					var response = this.types[typeKey](element);
 					if (element.hasAttribute("validation")) {
+						this.resetElementValidation(element);
 						if (!response.success) {
 							this.invalidateElement(element, response.message);
 							return response;
 						}
-						this.resetElementValidation(element);
+						element.classList.add("validation-success");
 					}
 				}
 			}
